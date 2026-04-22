@@ -4,45 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | C & A 3D printing</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #0d0d0d; color: #ccc; font-family: Arial, sans-serif; margin: 0; padding: 30px; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid #222; margin-bottom: 40px; }
+        .logo-cna { color: #C99E54; font-size: 28px; font-weight: bold; text-decoration: none; }
+        .logo-sub { color: white; font-size: 16px; margin-left: 8px; font-weight: normal; }
+        
+        .box { background-color: #141414; padding: 40px; border: 1px solid #222; width: 400px; }
+        .box-title { color: #C99E54; font-family: 'Georgia', serif; font-style: italic; text-align: center; margin-bottom: 40px; font-size: 20px; }
+        
+        .input-group { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        .input-group label { color: #888; font-size: 14px; }
+        .input-group input { background-color: #1a1a1a; border: 1px solid #333; color: white; padding: 8px; width: 150px; outline: none; }
+        .input-group input:focus { border-color: #C99E54; }
+        
+        .btn-submit { background-color: transparent; border: 1px solid #C99E54; color: #C99E54; width: 100%; padding: 15px; margin-top: 20px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .btn-submit:hover { background-color: #C99E54; color: #000; }
+    </style>
 </head>
 <body>
-    <div class="container mt-5" id="loginSection">
-        <div class="row justify-content-center">
-            <div class="col-md-5 card-container">
-                <h4 class="text-gold text-center mb-4">Admin Access</h4>
-                <input type="password" id="adminPassword" class="input-base mb-3" placeholder="Enter Password">
-                <button onclick="checkLogin()" class="btn-action w-100">LOGIN</button>
-            </div>
+
+    <div class="header">
+        <div>
+            <a href="index.html" class="logo-cna">C & A</a>
+            <span class="logo-sub">3D printing</span>
         </div>
     </div>
 
-    <div class="container mt-5 d-none" id="calculatorSection">
-        <h2 class="text-center text-white mb-4">Pricing Calculator</h2>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-5 card-container border-highlight">
-                <h4 class="text-gold mb-3">Operational Base</h4>
-                <div class="mb-2"><label class="text-muted">Filament Price</label><input type="number" id="P" class="input-base" value="7000"></div>
-                <div class="mb-2"><label class="text-muted">Density</label><input type="number" id="rho" class="input-base" value="1.25"></div>
-                <div class="mb-2"><label class="text-muted">Diameter</label><input type="number" id="d_mm" class="input-base" value="1.75"></div>
-                <div class="mb-2"><label class="text-muted">Power (W)</label><input type="number" id="W" class="input-base" value="150"></div>
-                <div class="mb-2"><label class="text-muted">Elec. Price</label><input type="number" id="R" class="input-base" value="67"></div>
-                <div class="mb-2"><label class="text-muted">Printer Cost</label><input type="number" id="Cp" class="input-base" value="140000"></div>
-                <div class="mb-2"><label class="text-muted">Lifetime (Hrs)</label><input type="number" id="H" class="input-base" value="2000"></div>
-                <div class="mb-2"><label class="text-muted">Failure Risk</label><input type="number" id="F" class="input-base" value="0.1"></div>
-            </div>
-            
-            <div class="col-lg-5 card-container border-highlight">
-                <h4 class="text-gold mb-3">Job Specifics</h4>
-                <div class="mb-3"><label class="text-white fw-bold">Print Time (Mins)</label><input type="number" id="T_min" class="input-base"></div>
-                <div class="mb-3"><label class="text-white fw-bold">Filament Length (M)</label><input type="number" id="L_m" class="input-base"></div>
-                <div class="mb-3"><label class="text-white fw-bold">Profit Margin (%)</label><input type="number" id="M_pct" class="input-base"></div>
-                <button onclick="calculatePrice()" class="btn-action w-100 mt-3">CALCULATE</button>
-            </div>
+    <div id="loginSection" style="display: flex; justify-content: center;">
+        <div class="box" style="width: 300px; text-align: center;">
+            <h3 class="box-title" style="margin-bottom: 20px;">ADMIN ACCESS</h3>
+            <input type="password" id="adminPassword" placeholder="Enter Password" style="background-color: #1a1a1a; border: 1px solid #333; color: white; padding: 10px; width: 90%; margin-bottom: 20px; outline: none;">
+            <button onclick="checkLogin()" class="btn-submit" style="margin-top: 0;">LOGIN</button>
         </div>
-        <div class="text-center mt-4"><h1 id="finalPrice" class="text-gold display-4">Rs 0.00</h1></div>
     </div>
+
+    <div id="calculatorSection" style="display: none; justify-content: center; gap: 30px;">
+        
+        <div class="box">
+            <h3 class="box-title">OPERATIONAL BASE</h3>
+            <div class="input-group"><label>Filament Price (Rs/kg)</label><input type="number" id="P" value="7000"></div>
+            <div class="input-group"><label>Filament Density (g/cm³)</label><input type="number" id="rho" value="1.25"></div>
+            <div class="input-group"><label>Filament Diameter (mm)</label><input type="number" id="d_mm" value="1.75"></div>
+            <div class="input-group"><label>Power Consumption (W)</label><input type="number" id="W" value="150"></div>
+            <div class="input-group"><label>Elec. Price (Rs/kWh)</label><input type="number" id="R" value="67"></div>
+            <div class="input-group"><label>Printer Cost (Rs)</label><input type="number" id="Cp" value="140000"></div>
+            <div class="input-group"><label>Printer Lifetime (Hrs)</label><input type="number" id="H" value="2000"></div>
+            <div class="input-group"><label>Failure Risk (0-1)</label><input type="number" id="F" value="0.1"></div>
+        </div>
+        
+        <div class="box">
+            <h3 class="box-title">JOB SPECIFICS</h3>
+            <div class="input-group"><label style="color: white; font-weight: bold;">Print Time (Minutes)</label><input type="number" id="T_min"></div>
+            <div class="input-group"><label style="color: white; font-weight: bold;">Filament Length (Meters)</label><input type="number" id="L_m"></div>
+            <div class="input-group"><label style="color: white; font-weight: bold;">Profit Margin (%)</label><input type="number" id="M_pct"></div>
+            
+            <button onclick="calculatePrice()" class="btn-submit" style="margin-top: 40px;">CALCULATE</button>
+            <h1 id="finalPrice" style="color: #C99E54; text-align: center; margin-top: 30px; font-size: 32px;">Rs 0.00</h1>
+        </div>
+
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
