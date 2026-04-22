@@ -3,107 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | C & A 3D printing</title>
+    <title>Order | C & A 3D printing</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <nav class="navbar sticky-top py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-baseline" href="index.html">
-                <span class="brand-gold">C & A</span>
-                <span class="brand-white ms-2">3D printing</span>
+            <a class="navbar-brand brand-flex" href="index.html">
+                <span class="text-gold fw-bold fs-2">C & A</span>
+                <span class="text-white ms-2 fs-5">3D printing</span>
             </a>
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-            </ul>
+            <a href="admin.html" class="nav-link text-muted small">Admin Login</a>
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="hero-eyebrow">PREMIUM MANUFACTURING — SS 2026</div>
-                    <h1 class="hero-heading">Discover <em>Refined</em> Printing.</h1>
-                    <p class="hero-desc">At C & A, we merge industrial-grade craftsmanship with modern 3D design. Every layer is a step toward perfection.</p>
-                    <div class="mt-4">
-                        <a href="#calculator" class="btn-ca-gold px-4 py-3 text-decoration-none">Get Instant Quote ↓</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="calculator" class="section-py bg-dark-alt">
+    <section class="section-padding bg-dark-main">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="hero-eyebrow">INSTANT ESTIMATOR</div>
-                <h2 class="section-title">Price <em>Calculator</em></h2>
+                <h2 class="section-title">Upload Your <em>Model</em></h2>
+                <p class="text-muted">Configure your 3D print parameters below.</p>
             </div>
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-5">
-                    <div class="calc-card">
-                        <h4 class="card-header-gold">Operational Base</h4>
-                        <div class="mb-3">
-                            <label class="form-label">Filament Price (Rs/kg)</label>
-                            <input type="number" id="P" class="form-control-ca" placeholder="3500">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Filament Density (g/cm³)</label>
-                            <input type="number" id="rho" class="form-control-ca" placeholder="1.25">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Filament Diameter (mm)</label>
-                            <input type="number" id="d_mm" class="form-control-ca" placeholder="1.75">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Electricity (Rs/kWh)</label>
-                            <input type="number" id="R" class="form-control-ca" placeholder="67">
-                        </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card-container border-highlight">
+                        <form id="customerForm">
+                            <div class="mb-3">
+                                <label class="form-label text-gold">Upload 3D Model (.stl, .obj)</label>
+                                <input type="file" id="modelFile" class="input-base" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label text-gold">Infill Percentage</label>
+                                <select id="infill" class="input-base">
+                                    <option value="10">10% (Standard)</option>
+                                    <option value="20">20% (Strong)</option>
+                                    <option value="50">50% (Heavy Duty)</option>
+                                    <option value="100">100% (Solid)</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label text-gold">Material</label>
+                                <select id="material" class="input-base">
+                                    <option value="PLA">PLA</option>
+                                    <option value="PETG">PETG</option>
+                                    <option value="ABS">ABS</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label text-gold">Color</label>
+                                <select id="color" class="input-base">
+                                    <option value="Black">Black</option>
+                                    <option value="White">White</option>
+                                    <option value="Grey">Grey</option>
+                                    <option value="Gold">Gold</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-action w-100">SUBMIT ORDER →</button>
+                        </form>
+                        <div id="orderStatus" class="mt-3 text-center text-white"></div>
                     </div>
                 </div>
-
-                <div class="col-lg-5">
-                    <div class="calc-card highlight-border">
-                        <h4 class="card-header-gold">Job Specifics</h4>
-                        <div class="mb-3">
-                            <label class="form-label">Print Time (Minutes)</label>
-                            <input type="number" id="T_min" class="form-control-ca">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Filament Length (Meters)</label>
-                            <input type="number" id="L_m" class="form-control-ca">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Profit Margin (%)</label>
-                            <input type="number" id="M_pct" class="form-control-ca">
-                        </div>
-                        <button onclick="calculatePrice()" class="btn-ca-gold w-100 mt-3">GENERATE QUOTE →</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <div id="finalPrice" class="display-price">Rs 0.00</div>
             </div>
         </div>
     </section>
-
-    <footer class="site-footer">
-        <div class="container text-center">
-            <a class="navbar-brand d-flex justify-content-center align-items-baseline mb-3" href="#">
-                <span class="brand-gold-sm">C & A</span>
-                <span class="brand-white-sm ms-2">3D printing</span>
-            </a>
-            <p class="text-muted small">© 2026 C & A 3D printing. Crafted with precision.</p>
-        </div>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
