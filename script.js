@@ -1,4 +1,4 @@
-// Change this to your live Railway URL
+// Your live Railway URL
 const BACKEND_URL = "https://ca3dprintingbackend-production.up.railway.app"; 
 
 // --- CUSTOMER FORM LOGIC (index.html) ---
@@ -33,14 +33,35 @@ if (customerForm) {
 }
 
 // --- ADMIN LOGIC (admin.html) ---
-function checkLogin() {
+async function checkLogin() {
     const pass = document.getElementById('adminPassword').value;
-    // Set your admin password here
-    if (pass === "admin123") {
-        document.getElementById('loginSection').style.display = 'none';
-        document.getElementById('calculatorSection').style.display = 'block';
-    } else {
-        alert("Incorrect Password");
+    const loginBtn = document.querySelector('#loginSection button');
+    
+    // Visual feedback while checking
+    loginBtn.innerText = "VERIFYING...";
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/admin/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: pass })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Password is correct, show the calculator
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('calculatorSection').style.display = 'block';
+        } else {
+            alert("Incorrect Password");
+            loginBtn.innerText = "LOGIN"; // Reset button text
+        }
+    } catch (error) {
+        alert("Server error. Please check your connection.");
+        loginBtn.innerText = "LOGIN"; // Reset button text
     }
 }
 
