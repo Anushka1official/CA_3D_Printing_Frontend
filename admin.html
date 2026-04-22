@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-dark-alt">
 
     <nav class="navbar sticky-top py-3">
         <div class="container d-flex justify-content-between align-items-center">
@@ -24,23 +24,25 @@
         </div>
     </nav>
 
-    <div id="setupManagerSection" class="container mt-4" style="display: none;">
-        <div class="calc-card py-2 px-3 highlight-border" style="max-width: 850px; margin: 0 auto;">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                <div class="d-flex align-items-center gap-2 w-100">
-                    <span class="text-tan fw-bold small text-nowrap mb-0" style="font-family: 'Georgia', serif; font-style: italic;">Desktop Setup:</span>
-                    <input type="file" id="installerFile" class="form-control-ca" style="padding: 4px 8px; font-size: 0.85rem; height: auto;">
-                    <button onclick="uploadInstaller()" class="btn-ca-gold text-nowrap" style="padding: 4px 12px; font-size: 0.85rem;">UPLOAD</button>
-                </div>
-                <div class="d-flex align-items-center justify-content-end w-100 w-md-auto">
-                    <span id="uploadStatus" class="text-tan small fw-bold me-3 text-nowrap"></span>
-                    <button onclick="downloadInstaller()" class="btn-ca-gold text-nowrap" style="padding: 4px 12px; font-size: 0.85rem; background: transparent; border-color: #555; color: #ccc;">DOWNLOAD ↓</button>
+    <section id="setupManagerSection" class="pt-5" style="display: none;">
+        <div class="container">
+            <div class="calc-card py-2 px-3 highlight-border" style="max-width: 850px; margin: 0 auto;">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2 w-100">
+                        <span class="text-tan fw-bold small text-nowrap mb-0" style="font-family: 'Georgia', serif; font-style: italic;">Desktop Setup:</span>
+                        <input type="file" id="installerFile" class="form-control-ca" style="padding: 4px 8px; font-size: 0.85rem; height: auto;">
+                        <button onclick="uploadInstaller()" class="btn-ca-gold text-nowrap" style="padding: 4px 12px; font-size: 0.85rem;">UPLOAD</button>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-end w-100 w-md-auto">
+                        <span id="uploadStatus" class="text-tan small fw-bold me-3 text-nowrap"></span>
+                        <button onclick="downloadInstaller()" class="btn-ca-gold text-nowrap" style="padding: 4px 12px; font-size: 0.85rem; background: transparent; border-color: #555; color: #ccc;">DOWNLOAD ↓</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <section id="loginSection" class="section-py bg-dark-alt d-flex align-items-center" style="min-height: 70vh;">
+    <section id="loginSection" class="section-py d-flex align-items-center" style="min-height: 70vh;">
         <div class="container d-flex justify-content-center">
             <div class="calc-card highlight-border" style="max-width: 400px; width: 100%;">
                 <h4 class="card-header-gold text-center mb-4">ADMIN ACCESS</h4>
@@ -50,7 +52,7 @@
         </div>
     </section>
 
-    <section id="calculatorSection" class="section-py bg-dark-alt" style="display: none; min-height: 80vh;">
+    <section id="calculatorSection" class="section-py" style="display: none; min-height: 80vh;">
         <div class="container">
             <div class="text-center mb-5">
                 <div class="hero-eyebrow">OWNER DASHBOARD</div>

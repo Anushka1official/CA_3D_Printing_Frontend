@@ -124,6 +124,5 @@ async function uploadInstaller() {
 }
 
 function downloadInstaller() {
-    // Navigating to the download URL directly forces the browser to download the file
     window.location.href = `${BACKEND_URL}/api/installer/download`;
 }
