@@ -49,10 +49,13 @@ async function checkLogin() {
         const data = await response.json();
 
         if (data.success) {
-            // Password is correct: hide login, show setup manager, show calculator
+            // Password is correct: hide login, show setup manager, show dashboard
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('setupManagerSection').style.display = 'block'; 
             document.getElementById('calculatorSection').style.display = 'block';
+            
+            // Fetch the incoming orders automatically
+            fetchOrders();
         } else {
             alert("Incorrect Password");
             loginBtn.innerText = "LOGIN";
@@ -63,6 +66,45 @@ async function checkLogin() {
     }
 }
 
+// --- FETCH AND DISPLAY CUSTOMER ORDERS ---
+async function fetchOrders() {
+    const tableBody = document.getElementById('ordersTableBody');
+    tableBody.innerHTML = "<tr><td colspan='5' class='text-center text-muted'>Loading orders...</td></tr>";
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/orders`);
+        const orders = await response.json();
+
+        tableBody.innerHTML = ""; // Clear loading text
+
+        if (orders.length === 0) {
+            tableBody.innerHTML = "<tr><td colspan='5' class='text-center text-muted'>No orders yet.</td></tr>";
+            return;
+        }
+
+        orders.forEach(order => {
+            const date = new Date(order.orderDate).toLocaleDateString() + " " + new Date(order.orderDate).toLocaleTimeString();
+            
+            const row = document.createElement('tr');
+            row.style.borderBottom = "1px solid #333";
+            row.innerHTML = `
+                <td class="py-3">${date}</td>
+                <td class="py-3 fw-bold">${order.material}</td>
+                <td class="py-3">${order.color}</td>
+                <td class="py-3">${order.infill}%</td>
+                <td class="py-3">
+                    <a href="${order.fileUrl}" target="_blank" class="btn-ca-gold" style="padding: 4px 10px; font-size: 0.8rem; text-decoration: none;">Download File ↓</a>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+    } catch (error) {
+        tableBody.innerHTML = "<tr><td colspan='5' class='text-center text-danger'>Failed to load orders.</td></tr>";
+    }
+}
+
+// --- CALCULATOR LOGIC ---
 function calculatePrice() {
     // Operational Base
     const P = parseFloat(document.getElementById('P').value);
