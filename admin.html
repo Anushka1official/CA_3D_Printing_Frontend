@@ -18,12 +18,13 @@
             </a>
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link active" href="admin.html">Admin Login</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="loginSection" class="section-py bg-dark-alt" style="min-height: 80vh; display: flex; align-items: center;">
+    <section id="loginSection" class="section-py bg-dark-alt min-vh-100 d-flex align-items-center">
         <div class="container d-flex justify-content-center">
             <div class="calc-card highlight-border" style="max-width: 400px; width: 100%;">
                 <h4 class="card-header-gold text-center mb-4">ADMIN ACCESS</h4>
@@ -33,45 +34,55 @@
         </div>
     </section>
 
-    <section id="calculatorSection" class="section-py bg-dark-alt" style="display: none;">
+    <section id="calculatorSection" class="section-py bg-dark-alt" style="display: none; min-height: 100vh;">
         <div class="container">
             <div class="text-center mb-5">
                 <div class="hero-eyebrow">OWNER DASHBOARD</div>
-                <h2 class="section-title text-white">Price <em class="text-tan">Calculator</em></h2>
+                <h2 class="section-title">Price <em>Calculator</em></h2>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-5">
                     <div class="calc-card h-100">
-                        <h4 class="card-header-gold text-center">OPERATIONAL BASE</h4>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Filament Price (Rs/kg)</label><input type="number" id="P" class="form-control-ca" style="width: 120px;" value="7000"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Density (g/cm³)</label><input type="number" id="rho" class="form-control-ca" style="width: 120px;" value="1.25"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Diameter (mm)</label><input type="number" id="d_mm" class="form-control-ca" style="width: 120px;" value="1.75"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Power (W)</label><input type="number" id="W" class="form-control-ca" style="width: 120px;" value="150"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Elec. Price (Rs/kWh)</label><input type="number" id="R" class="form-control-ca" style="width: 120px;" value="67"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Printer Cost (Rs)</label><input type="number" id="Cp" class="form-control-ca" style="width: 120px;" value="140000"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Lifetime (Hrs)</label><input type="number" id="H" class="form-control-ca" style="width: 120px;" value="2000"></div>
-                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Failure Risk (0-1)</label><input type="number" id="F" class="form-control-ca" style="width: 120px;" value="0.1"></div>
+                        <h4 class="card-header-gold text-center text-uppercase">Operational Base</h4>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Filament Price (Rs/kg)</label><input type="number" id="P" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="7000"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Filament Density (g/cm³)</label><input type="number" id="rho" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="1.25"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Filament Diameter (mm)</label><input type="number" id="d_mm" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="1.75"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Power Consumption (W)</label><input type="number" id="W" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="150"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Elec. Price (Rs/kWh)</label><input type="number" id="R" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="67"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Printer Cost (Rs)</label><input type="number" id="Cp" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="140000"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Printer Lifetime (Hrs)</label><input type="number" id="H" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="2000"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="form-label text-muted mb-0">Failure Risk (0-1)</label><input type="number" id="F" class="form-control-ca" style="width: 120px; padding: 6px 12px;" value="0.1"></div>
                     </div>
                 </div>
 
                 <div class="col-lg-5">
                     <div class="calc-card highlight-border h-100">
-                        <h4 class="card-header-gold text-center">JOB SPECIFICS</h4>
-                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="form-label text-white mb-0">Print Time (Minutes)</label><input type="number" id="T_min" class="form-control-ca" style="width: 120px;"></div>
-                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="form-label text-white mb-0">Filament Length (Meters)</label><input type="number" id="L_m" class="form-control-ca" style="width: 120px;"></div>
-                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="form-label text-white mb-0">Profit Margin (%)</label><input type="number" id="M_pct" class="form-control-ca" style="width: 120px;"></div>
+                        <h4 class="card-header-gold text-center text-uppercase">Job Specifics</h4>
+                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="form-label text-white mb-0">Print Time (Minutes)</label><input type="number" id="T_min" class="form-control-ca" style="width: 120px; padding: 6px 12px;"></div>
+                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="form-label text-white mb-0">Filament Length (Meters)</label><input type="number" id="L_m" class="form-control-ca" style="width: 120px; padding: 6px 12px;"></div>
+                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="form-label text-white mb-0">Profit Margin (%)</label><input type="number" id="M_pct" class="form-control-ca" style="width: 120px; padding: 6px 12px;"></div>
                         
                         <button onclick="calculatePrice()" class="btn-ca-gold w-100 mt-4">GENERATE QUOTE →</button>
                         
                         <div class="text-center mt-5">
-                            <div id="finalPrice" class="text-tan" style="font-size: 2.5rem; font-family: 'Georgia', serif; font-weight: bold;">Rs 0.00</div>
+                            <div id="finalPrice" class="display-price text-tan">Rs 0.00</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <a class="navbar-brand d-flex justify-content-center align-items-baseline mb-3" href="#">
+                <span class="brand-gold-sm">C & A</span>
+                <span class="brand-white-sm ms-2">3D printing</span>
+            </a>
+            <p class="text-muted small">© 2026 C & A 3D printing. Crafted with precision.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

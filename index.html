@@ -18,16 +18,32 @@
             </a>
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="admin.html">Admin Login</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="section-py bg-dark-alt" style="min-height: 80vh; display: flex; align-items: center;">
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-eyebrow">PREMIUM MANUFACTURING — SS 2026</div>
+                    <h1 class="hero-heading">Discover <em>Refined</em> Printing.</h1>
+                    <p class="hero-desc">At C & A, we merge industrial-grade craftsmanship with modern 3D design. Every layer is a step toward perfection.</p>
+                    <div class="mt-4">
+                        <a href="#order-section" class="btn-ca-gold px-4 py-3 text-decoration-none">Start Printing ↓</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order-section" class="section-py bg-dark-alt">
         <div class="container">
             <div class="text-center mb-5">
                 <div class="hero-eyebrow">START YOUR PROJECT</div>
-                <h2 class="section-title text-white">Upload Your <em class="text-tan">Model</em></h2>
+                <h2 class="section-title">Upload Your <em>Model</em></h2>
             </div>
 
             <div class="row justify-content-center">
@@ -64,7 +80,7 @@
                                     <option value="Gold">Gold</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn-ca-gold w-100 mt-3">SUBMIT ORDER →</button>
+                            <button type="submit" class="btn-ca-gold w-100 mt-2">SUBMIT ORDER →</button>
                         </form>
                         <div id="orderStatus" class="mt-4 text-center text-tan fw-bold"></div>
                     </div>
@@ -72,6 +88,16 @@
             </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <a class="navbar-brand d-flex justify-content-center align-items-baseline mb-3" href="#">
+                <span class="brand-gold-sm">C & A</span>
+                <span class="brand-white-sm ms-2">3D printing</span>
+            </a>
+            <p class="text-muted small">© 2026 C & A 3D printing. Crafted with precision.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
