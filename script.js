@@ -49,7 +49,9 @@ async function checkLogin() {
         const data = await response.json();
 
         if (data.success) {
+            // Password is correct: hide login, show setup manager, show calculator
             document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('setupManagerSection').style.display = 'block'; 
             document.getElementById('calculatorSection').style.display = 'block';
         } else {
             alert("Incorrect Password");
@@ -90,7 +92,7 @@ function calculatePrice() {
     document.getElementById('finalPrice').innerText = "Rs " + Cfinal.toFixed(2);
 }
 
-// --- NEW: DESKTOP INSTALLER MANAGEMENT ---
+// --- DESKTOP INSTALLER MANAGEMENT ---
 async function uploadInstaller() {
     const fileInput = document.getElementById('installerFile');
     const statusDiv = document.getElementById('uploadStatus');
