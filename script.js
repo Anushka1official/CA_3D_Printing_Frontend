@@ -37,31 +37,27 @@ async function checkLogin() {
     const pass = document.getElementById('adminPassword').value;
     const loginBtn = document.querySelector('#loginSection button');
     
-    // Visual feedback while checking
     loginBtn.innerText = "VERIFYING...";
 
     try {
         const response = await fetch(`${BACKEND_URL}/api/admin/login`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ password: pass })
         });
 
         const data = await response.json();
 
         if (data.success) {
-            // Password is correct, show the calculator
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('calculatorSection').style.display = 'block';
         } else {
             alert("Incorrect Password");
-            loginBtn.innerText = "LOGIN"; // Reset button text
+            loginBtn.innerText = "LOGIN";
         }
     } catch (error) {
         alert("Server error. Please check your connection.");
-        loginBtn.innerText = "LOGIN"; // Reset button text
+        loginBtn.innerText = "LOGIN";
     }
 }
 
@@ -92,4 +88,40 @@ function calculatePrice() {
     const Cfinal = (Cbase / (1 - F)) * (1 + M);
 
     document.getElementById('finalPrice').innerText = "Rs " + Cfinal.toFixed(2);
+}
+
+// --- NEW: DESKTOP INSTALLER MANAGEMENT ---
+async function uploadInstaller() {
+    const fileInput = document.getElementById('installerFile');
+    const statusDiv = document.getElementById('uploadStatus');
+    
+    if (!fileInput.files[0]) {
+        statusDiv.innerText = "Please select an installer file first.";
+        return;
+    }
+    
+    statusDiv.innerText = "Uploading... please wait.";
+    const formData = new FormData();
+    formData.append('setupFile', fileInput.files[0]);
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/api/admin/installer`, {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (response.ok) {
+            statusDiv.innerText = "Upload successful!";
+            fileInput.value = ""; // Clear input after uploading
+        } else {
+            statusDiv.innerText = "Upload failed.";
+        }
+    } catch (error) {
+        statusDiv.innerText = "Server connection error.";
+    }
+}
+
+function downloadInstaller() {
+    // Navigating to the download URL directly forces the browser to download the file
+    window.location.href = `${BACKEND_URL}/api/installer/download`;
 }
