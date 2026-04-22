@@ -5,99 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | C & A 3D printing</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar sticky-top py-3">
+    <nav class="navbar sticky-top py-3 border-bottom border-dark">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-baseline" href="index.html">
-                <span class="brand-gold">C & A</span>
-                <span class="brand-white ms-2">3D printing</span>
+            <a class="brand-flex" href="index.html">
+                <span class="text-gold fw-bold fs-2">C & A</span>
+                <span class="text-white ms-2 fs-5">3D printing</span>
             </a>
             <ul class="nav">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin.html">Admin Login</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="admin.html">Admin Login</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="hero-eyebrow">PREMIUM MANUFACTURING — SS 2026</div>
-                    <h1 class="hero-heading">Discover <em>Refined</em> Printing.</h1>
-                    <p class="hero-desc">At C & A, we merge industrial-grade craftsmanship with modern 3D design. Every layer is a step toward perfection.</p>
-                    <div class="mt-4">
-                        <a href="#order-section" class="btn-ca-gold px-4 py-3 text-decoration-none">Start Printing ↓</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="order-section" class="section-py bg-dark-alt">
+    <section class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="hero-eyebrow">START YOUR PROJECT</div>
-                <h2 class="section-title text-white" style="font-family: 'Georgia', serif; font-size: 2.5rem;">Upload Your <em class="text-tan" style="font-style: italic;">Model</em></h2>
+                <h2 class="section-title">Upload Your <em>Model</em></h2>
+                <p class="text-muted">Configure your 3D print parameters below.</p>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="calc-card highlight-border">
+                    <div class="card-container border-highlight">
                         <form id="customerForm">
                             <div class="mb-4">
-                                <label class="form-label text-muted">Upload 3D Model (.stl, .obj)</label>
-                                <input type="file" id="modelFile" class="form-control-ca" required>
+                                <label class="form-label text-gold">Upload 3D Model (.stl, .obj)</label>
+                                <input type="file" id="modelFile" class="input-base" required>
                             </div>
+                            
                             <div class="mb-4">
-                                <label class="form-label text-muted">Infill Percentage</label>
-                                <select id="infill" class="form-control-ca">
+                                <label class="form-label text-gold">Infill Percentage</label>
+                                <select id="infill" class="input-base">
                                     <option value="10">10% (Standard)</option>
                                     <option value="20">20% (Strong)</option>
                                     <option value="50">50% (Heavy Duty)</option>
                                     <option value="100">100% (Solid)</option>
                                 </select>
                             </div>
+
                             <div class="mb-4">
-                                <label class="form-label text-muted">Material</label>
-                                <select id="material" class="form-control-ca">
+                                <label class="form-label text-gold">Material</label>
+                                <select id="material" class="input-base">
                                     <option value="PLA">PLA</option>
                                     <option value="PETG">PETG</option>
                                     <option value="ABS">ABS</option>
                                 </select>
                             </div>
+
                             <div class="mb-4">
-                                <label class="form-label text-muted">Color</label>
-                                <select id="color" class="form-control-ca">
+                                <label class="form-label text-gold">Color</label>
+                                <select id="color" class="input-base">
                                     <option value="Black">Black</option>
                                     <option value="White">White</option>
                                     <option value="Grey">Grey</option>
                                     <option value="Gold">Gold</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn-ca-gold w-100 mt-2">SUBMIT ORDER →</button>
+
+                            <button type="submit" class="btn-action w-100 mt-2">SUBMIT ORDER →</button>
                         </form>
-                        <div id="orderStatus" class="mt-4 text-center text-tan fw-bold"></div>
+                        <div id="orderStatus" class="mt-3 text-center text-white"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer class="site-footer">
-        <div class="container text-center">
-            <a class="navbar-brand d-flex justify-content-center align-items-baseline mb-3" href="#">
-                <span class="brand-gold-sm">C & A</span>
-                <span class="brand-white-sm ms-2">3D printing</span>
-            </a>
-            <p class="text-muted small">© 2026 C & A 3D printing. Crafted with precision.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>

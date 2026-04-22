@@ -5,67 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | C & A 3D printing</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar sticky-top py-3">
+    <nav class="navbar sticky-top py-3 border-bottom border-dark">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-baseline" href="index.html">
-                <span class="brand-gold">C & A</span>
-                <span class="brand-white ms-2">3D printing</span>
+            <a class="brand-flex" href="index.html">
+                <span class="text-gold fw-bold fs-2">C & A</span>
+                <span class="text-white ms-2 fs-5">3D printing</span>
             </a>
             <ul class="nav">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="admin.html">Admin Login</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="admin.html">Admin Login</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="loginSection" class="section-py bg-dark-alt min-vh-100">
+    <section id="loginSection" class="section-padding">
         <div class="container d-flex justify-content-center">
-            <div class="calc-card highlight-border" style="max-width: 400px; width: 100%;">
-                <h4 class="card-header-gold text-center mb-4">Admin Access</h4>
-                <input type="password" id="adminPassword" class="form-control-ca mb-4" placeholder="Enter Password">
-                <button onclick="checkLogin()" class="btn-ca-gold w-100">LOGIN</button>
+            <div class="card-container border-highlight" style="max-width: 400px; width: 100%;">
+                <h4 class="text-gold text-center mb-4">Admin Access</h4>
+                <input type="password" id="adminPassword" class="input-base mb-4" placeholder="Enter Password">
+                <button onclick="checkLogin()" class="btn-action w-100">LOGIN</button>
             </div>
         </div>
     </section>
 
-    <section id="calculatorSection" class="section-py bg-dark-alt" style="display: none;">
+    <section id="calculatorSection" class="section-padding" style="display: none;">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="hero-eyebrow">OWNER DASHBOARD</div>
-                <h2 class="section-title text-white" style="font-family: 'Georgia', serif; font-size: 2.5rem;">Price <em class="text-tan" style="font-style: italic;">Calculator</em></h2>
+                <h2 class="section-title">Price <em>Calculator</em></h2>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-5">
-                    <div class="calc-card">
-                        <h4 class="card-header-gold">Operational Base</h4>
-                        <div class="mb-3"><label class="form-label text-muted">Filament Price (Rs/kg)</label><input type="number" id="P" class="form-control-ca" value="7000"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Filament Density (g/cm³)</label><input type="number" id="rho" class="form-control-ca" value="1.25"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Filament Diameter (mm)</label><input type="number" id="d_mm" class="form-control-ca" value="1.75"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Power Consumption (W)</label><input type="number" id="W" class="form-control-ca" value="150"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Electricity (Rs/kWh)</label><input type="number" id="R" class="form-control-ca" value="67"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Printer Cost (Rs)</label><input type="number" id="Cp" class="form-control-ca" value="140000"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Printer Lifetime (Hrs)</label><input type="number" id="H" class="form-control-ca" value="2000"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Failure Risk (0-1)</label><input type="number" id="F" class="form-control-ca" value="0.1"></div>
+                    <div class="card-container border-highlight h-100">
+                        <h4 class="text-gold mb-4 text-center">OPERATIONAL BASE</h4>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Filament Price (Rs/kg)</label><input type="number" id="P" class="input-base" style="width: 140px;" value="7000"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Density (g/cm³)</label><input type="number" id="rho" class="input-base" style="width: 140px;" value="1.25"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Diameter (mm)</label><input type="number" id="d_mm" class="input-base" style="width: 140px;" value="1.75"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Power (W)</label><input type="number" id="W" class="input-base" style="width: 140px;" value="150"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Elec. Price (Rs/kWh)</label><input type="number" id="R" class="input-base" style="width: 140px;" value="67"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Printer Cost (Rs)</label><input type="number" id="Cp" class="input-base" style="width: 140px;" value="140000"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Lifetime (Hrs)</label><input type="number" id="H" class="input-base" style="width: 140px;" value="2000"></div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center"><label class="text-muted">Failure Risk (0-1)</label><input type="number" id="F" class="input-base" style="width: 140px;" value="0.1"></div>
                     </div>
                 </div>
 
                 <div class="col-lg-5">
-                    <div class="calc-card highlight-border">
-                        <h4 class="card-header-gold">Job Specifics</h4>
-                        <div class="mb-3"><label class="form-label text-muted">Print Time (Minutes)</label><input type="number" id="T_min" class="form-control-ca"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Filament Length (Meters)</label><input type="number" id="L_m" class="form-control-ca"></div>
-                        <div class="mb-3"><label class="form-label text-muted">Profit Margin (%)</label><input type="number" id="M_pct" class="form-control-ca"></div>
+                    <div class="card-container border-highlight h-100">
+                        <h4 class="text-gold mb-4 text-center">JOB SPECIFICS</h4>
+                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="text-white fw-bold">Print Time (Minutes)</label><input type="number" id="T_min" class="input-base" style="width: 140px;"></div>
+                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="text-white fw-bold">Filament Length (Meters)</label><input type="number" id="L_m" class="input-base" style="width: 140px;"></div>
+                        <div class="mb-4 d-flex justify-content-between align-items-center"><label class="text-white fw-bold">Profit Margin (%)</label><input type="number" id="M_pct" class="input-base" style="width: 140px;"></div>
                         
-                        <button onclick="calculatePrice()" class="btn-ca-gold w-100 mt-3">GENERATE QUOTE →</button>
-                    </div>
-                    <div class="text-center mt-5">
-                        <div id="finalPrice" class="display-price text-tan">Rs 0.00</div>
+                        <button onclick="calculatePrice()" class="btn-action w-100 mt-4">CALCULATE</button>
+                        
+                        <div class="text-center mt-5">
+                            <h1 id="finalPrice" class="text-gold" style="font-size: 2.5rem; margin: 0;">Rs 0.00</h1>
+                        </div>
                     </div>
                 </div>
             </div>
